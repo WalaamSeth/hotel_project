@@ -5,8 +5,16 @@
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0">Комнаты</h1>
+                    <div class="col-sm-6 d-flex align-items-center">
+                        <h1 class="m-0 mr-2">{{ $hotel->title }} </h1>
+                        <a href="{{ route('admin.hotel.edit', $hotel->id) }}" class="text-success"> <i class="fas fa-pen"></i></a>
+                        <form action="{{ route('admin.hotel.delete', $hotel->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="border-0 bg-transparent">
+                                <i class="fas fa-trash text-danger" role="button"></i>
+                            </button>
+                        </form>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -22,33 +30,21 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                <!-- Small boxes (Stat box) -->
-                <div class="row">
-                    <div class="col-3 mb-3">
-                        <a href="{{ route('admin.room.create') }}" class="btn btn-block btn-primary">Добавить</a>
-                    </div>
-                </div>
+
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body table-responsive p-0">
                                 <table class="table table-hover text-nowrap">
-                                    <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Название</th>
-                                        <th>hotel_ID</th>
-
-                                    </tr>
-                                    </thead>
                                     <tbody>
-                                    @foreach($rooms as $room)
                                         <tr>
-                                            <td>{{ $room->id }}</td>
-                                            <td>{{ $room->title }}</td>
-                                            <td>{{ $room->hotel_id }}</td>
+                                            <td>ID</td>
+                                            <td>{{ $hotel->id }}</td>
                                         </tr>
-                                    @endforeach
+                                        <tr>
+                                            <td>Название</td>
+                                            <td>{{ $hotel->title }}</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>

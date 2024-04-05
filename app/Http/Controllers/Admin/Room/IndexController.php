@@ -10,6 +10,6 @@ class IndexController extends Controller
     public function __invoke()
     {
         $rooms = Room::all();
-        return view('admin.rooms.index', compact('rooms'));
+        return view('admin.room.index', compact('rooms'));
     }
 }

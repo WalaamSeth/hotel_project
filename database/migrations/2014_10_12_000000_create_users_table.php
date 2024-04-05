@@ -26,7 +26,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->index('room_id', 'user_room_idx');
-            $table->foreign('room_id', 'user_room_fk')->on('rooms')->references('id');
+            $table->foreign('room_id', 'user_room_fk')->on('room')->references('id');
         });
     }
 

@@ -11,6 +11,14 @@
                 </p>
             </a>
         </li>
+        <li class="nav-item">
+            <a href="{{ route('admin.hotel.index') }}" class="nav-link">
+                <i class="nav-icon fas fa-hotel"></i>
+                <p>
+                    Отели
+                </p>
+            </a>
+        </li>
     </ul>
     </div>
 </aside>
